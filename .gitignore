@@ -1,0 +1,10 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+.idea/
+public/public_assets/*
+coverage/*
+doc/*.json
+.generators
+.rakeTasks
