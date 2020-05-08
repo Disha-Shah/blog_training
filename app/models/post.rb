@@ -13,11 +13,17 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :body, presence: true, length: { maximum: 200 }
 
-  validate :validate_status
+  validate :validate
 
-  def validate_status
-    if Post.draft.where(user_id: user_id).any?
+  before_save -> { count_words(:title) }
+
+  def validate
+    if draft? && Post.draft.where(user_id: user_id).any?
       errors.add(:base, 'User can not have more than 1 post in draft state. ')
+    end
+
+    if wrong_words(title)
+      errors.add(:title, 'can not have bad words.')
     end
   end
 end

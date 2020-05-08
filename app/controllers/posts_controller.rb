@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :activate, :archive]
 
   # GET /posts
   def index
@@ -44,6 +44,16 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
+  end
+
+  def activate
+    @post.update(status: :published)
+    redirect_to posts_path
+  end
+
+  def archive
+    @post.update(status: :archived)
+    redirect_to posts_path
   end
 
   private

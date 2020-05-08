@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200505095806) do
+ActiveRecord::Schema.define(version: 20200508112157) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "description"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20200505095806) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "word_count"
     t.index ["parent_id"], name: "index_comments_on_parent_id", using: :btree
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 20200505095806) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "word_count"
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 

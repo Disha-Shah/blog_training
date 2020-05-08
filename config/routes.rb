@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
   root to: "posts#index"
 
-  resources :posts
+  resources :posts do
+    member do
+      get :activate
+      get :archive
+    end
+  end
   resources :comments
 
 end

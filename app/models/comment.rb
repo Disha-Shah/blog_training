@@ -9,6 +9,16 @@ class Comment < ApplicationRecord
 
   # belongs_to :user
 
-
   validates :description, presence: true, length: { maximum: 100 }
+
+  validate :validate
+
+  before_save -> { count_words(:description) }
+
+  def validate
+    if wrong_words(description)
+      errors.add(:description, 'can not have bad words.')
+    end
+  end
+
 end
