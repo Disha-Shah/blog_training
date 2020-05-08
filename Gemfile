@@ -22,6 +22,7 @@ gem 'i18n' # may not need this ...
 
 gem 'activerecord-session_store'
 gem 'devise', "~> 4.3.0"
+gem 'rails-ujs'
 
 group :test do
   # gem 'pry-rails'

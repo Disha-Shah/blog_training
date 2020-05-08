@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :post %><br />
+    <%= f.select :post_id, options_for_select(Post.all.collect { | post | [post.title, post.id] }, @post.try(:id)), { include_blank: true }, {} %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

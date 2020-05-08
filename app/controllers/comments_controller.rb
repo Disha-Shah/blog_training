@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   # POST /comments
   def create
-    @comment = Comment.new(comment_params)
+    @comment = Comment.new(comment_params.merge(user_id: current_user.id))
 
     if @comment.save
       redirect_to @comment, notice: 'Comment was successfully created.'
@@ -53,6 +53,6 @@ class CommentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def comment_params
-      params.fetch(:comment, {})
+      params.require(:comment).permit(:description, :post_id)
     end
 end

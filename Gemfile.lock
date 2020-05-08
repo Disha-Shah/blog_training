@@ -117,6 +117,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
+    rails-ujs (0.1.0)
+      railties (>= 3.1)
     railties (5.0.3)
       actionpack (= 5.0.3)
       activesupport (= 5.0.3)
@@ -189,6 +191,7 @@ DEPENDENCIES
   nokogiri
   rails (= 5.0.3)
   rails-controller-testing
+  rails-ujs
   railties
   sass-rails
   shoulda (~> 3.5)

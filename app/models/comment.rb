@@ -5,7 +5,10 @@ class Comment < ApplicationRecord
   belongs_to :parent, class_name: 'Comment'
 
   belongs_to :post
+  delegate :title, to: :post, prefix: true, allow_nil: true
+
   # belongs_to :user
 
-  validates :description, length: { maximum: 100 }
+
+  validates :description, presence: true, length: { maximum: 100 }
 end

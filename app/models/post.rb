@@ -16,7 +16,7 @@ class Post < ApplicationRecord
   validate :validate_status
 
   def validate_status
-    if Post.draft.where(user_id: user_id).size > 1
+    if Post.draft.where(user_id: user_id).any?
       errors.add(:base, 'User can not have more than 1 post in draft state. ')
     end
   end
