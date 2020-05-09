@@ -16,6 +16,6 @@ module Blog
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths << Rails.root.join('lib')
 
-    config.middleware.use 'ResponseTime'
+    config.middleware.use ResponseTime
   end
 end

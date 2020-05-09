@@ -9,8 +9,10 @@ module Sanitize
   end
 
   def wrong_words(value)
-    words = ['bad', 'poor', 'filthy', 'dirty', 'stupid']
-    words.any? { |word| value.include?(word) }
+    if value.present?
+      words = ['bad', 'poor', 'filthy', 'dirty', 'stupid']
+      words.any? { |word| value.include?(word) }
+    end
   end
 
   def count_words(column)

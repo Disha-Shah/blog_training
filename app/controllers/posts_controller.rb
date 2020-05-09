@@ -48,6 +48,7 @@ class PostsController < ApplicationController
 
   def activate
     @post.update(status: :published)
+    PublishedPostWorker.perform_async(@post.id)
     redirect_to posts_path
   end
 
