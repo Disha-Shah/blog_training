@@ -24,7 +24,7 @@ gem 'activerecord-session_store'
 gem 'devise', "~> 4.3.0"
 gem 'rails-ujs'
 
-gem 'sidekiq', "~> 4.1.2"
+gem 'sidekiq', "~> 6.4.0"
 
 group :test do
   # gem 'pry-rails'
